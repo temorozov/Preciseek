@@ -2,8 +2,6 @@ import chromadb
 
 client = chromadb.PersistentClient(path="./chroma_data")
 
-
-
 def add_chunks(chunks, embeddings, collection_name):
 
     collection = client.get_or_create_collection(name=collection_name)

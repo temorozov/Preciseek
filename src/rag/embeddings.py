@@ -1,11 +1,10 @@
 from openai import OpenAI
 from typing import List
-from dotenv import load_dotenv
-import os
+from config.settings import Settings
 
-load_dotenv()
+settings = Settings()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI(api_key=settings.openai_api_key.get_secret_value())
 
 def get_embeddings(texts: List[str]):
     response = client.embeddings.create(
